@@ -24,6 +24,11 @@ describe GildedRose do
       expect { GildedRose.new(items).update_quality() }.to_not change {items[0].quality}
     end
 
+    it "Aged brie quality actually increases by 1 when updated" do
+      items = [Item.new(name="Aged Brie", sell_in=10, quality=10)]
+      expect { GildedRose.new(items).update_quality() }.to change {items[0].quality}.by(1)
+    end
+
   end
 
 end
