@@ -31,6 +31,11 @@ describe GildedRose do
         items = [Item.new(name="Aged Brie", sell_in=10, quality=10)]
         expect { GildedRose.new(items).update_quality() }.to change {items[0].quality}.by(1)
       end
+      it "maxes out quality at 50" do
+        items = [Item.new(name="Aged Brie", sell_in=10, quality=50)]
+        expect { GildedRose.new(items).update_quality() }.to_not change {items[0].quality}
+
+      end
     end
     describe "Sulfuras" do
       it "Sulfuras, being a legendary item, does not degrade in quality" do
