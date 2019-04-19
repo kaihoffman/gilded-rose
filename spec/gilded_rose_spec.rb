@@ -29,6 +29,16 @@ describe GildedRose do
       expect { GildedRose.new(items).update_quality() }.to change {items[0].quality}.by(1)
     end
 
+    it "Sulfuras, being a legendary item, does not degrade in quality" do
+      items = [Item.new(name="Sulfuras, Hand of Ragnaros", sell_in=10, quality=10)]
+      expect { GildedRose.new(items).update_quality() }.to_not change {items[0].quality}
+    end
+
+    it "Sulfuras, being a legendary item, does not change sell_in" do
+      items = [Item.new(name="Sulfuras, Hand of Ragnaros", sell_in=10, quality=10)]
+      expect { GildedRose.new(items).update_quality() }.to_not change {items[0].sell_in}
+    end
+
   end
 
 end
