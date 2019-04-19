@@ -19,7 +19,10 @@ describe GildedRose do
       expect { GildedRose.new(items).update_quality() }.to change {items[0].quality}.by(-2)
     end
 
-    
+    it "will not decrease the quality of an item below 0" do
+      items = [Item.new(name="expired generic with 0 quality", sell_in=0, quality=0)]
+      expect { GildedRose.new(items).update_quality() }.to_not change {items[0].quality}
+    end
 
   end
 
