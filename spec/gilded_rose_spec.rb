@@ -65,6 +65,10 @@ describe GildedRose do
         items = [Item.new(name="Backstage passes to a TAFKAL80ETC concert", sell_in=0, quality=10)]
         expect { GildedRose.new(items).update_quality() }.to change {items[0].quality}.by(-10)
       end
+      it "maxes out quality at 50" do
+        items = [Item.new(name="Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=50)]
+        expect { GildedRose.new(items).update_quality() }.to_not change {items[0].quality}
+      end
     end
   end
 end
