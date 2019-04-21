@@ -30,7 +30,7 @@ class GildedRose
       if item.quality < 50
         item.quality += 1
       end
-      item.sell_in -= 1
+      lower_sell_in(item, 1)
     end
 
     def backstage_pass_update(item)
@@ -43,7 +43,7 @@ class GildedRose
       if item.sell_in == 0
         item.quality = 0
       end
-      item.sell_in -= 1
+      lower_sell_in(item, 1)
     end
 
     def regular_item_update(item)
@@ -52,7 +52,11 @@ class GildedRose
       else
         item.quality -= 1
       end
-      item.sell_in -= 1
+      lower_sell_in(item, 1)
+    end
+
+    def lower_sell_in(item, number_of_days)
+      item.sell_in -= number_of_days
     end
 
 end
