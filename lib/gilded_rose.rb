@@ -31,16 +31,15 @@ class GildedRose
   end
 
   def backstage_pass_update(item)
-    if item.sell_in < 11 && item.sell_in > 6 && item.quality < MAX_QUALITY
-      change_quality(item, 2)
-    elsif item.sell_in < 6 && item.quality < MAX_QUALITY
-      change_quality(item, 3)
-    else change_quality(item, 1) unless item.quality == MAX_QUALITY
-    end
     if item.sell_in <= 0
-      change_quality(item, -(item.quality))
+      change_quality(item, -item.quality)
+    elsif item.sell_in < 6
+      change_quality(item, 3)
+    elsif item.sell_in < 11
+      change_quality(item, 2)
+    else
+      change_quality(item, 1)
     end
-    lower_sell_in(item, 1)
   end
 
   def regular_item_update(item)
@@ -58,5 +57,8 @@ class GildedRose
 
   def change_quality(item, value)
     item.quality = item.quality + value
+    if item.quality > MAX_QUALITY
+      item.quality = MAX_QUALITY
+    end
   end
 end
