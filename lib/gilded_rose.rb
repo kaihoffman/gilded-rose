@@ -1,6 +1,6 @@
 require_relative 'item'
 class GildedRose
-
+  MAX_QUALITY = 50
   def initialize(items)
     @items = items
   end
@@ -26,19 +26,19 @@ class GildedRose
   end
 
   def aged_brie_update(item)
-    change_quality(item, 1) unless item.quality == 50
+    change_quality(item, 1) unless item.quality == MAX_QUALITY
     lower_sell_in(item, 1)
   end
 
   def backstage_pass_update(item)
-    if item.sell_in < 11 && item.sell_in > 6 && item.quality < 50
+    if item.sell_in < 11 && item.sell_in > 6 && item.quality < MAX_QUALITY
       change_quality(item, 2)
-    elsif item.sell_in < 6 && item.quality < 50
+    elsif item.sell_in < 6 && item.quality < MAX_QUALITY
       change_quality(item, 3)
-    else change_quality(item, 1) unless item.quality == 50
+    else change_quality(item, 1) unless item.quality == MAX_QUALITY
     end
     if item.sell_in.zero?
-      item.quality = 0
+      change_quality(item, -(item.quality))
     end
     lower_sell_in(item, 1)
   end
