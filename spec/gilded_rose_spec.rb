@@ -70,9 +70,14 @@ describe GildedRose do
           .to change { items[0].quality }.by(3)
       end
       it 'drops value to 0 if date to sell has passed' do
-        items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 0, 10)]
+        items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 0, 50)]
         expect { GildedRose.new(items).update_quality }
-          .to change { items[0].quality }.by(-10)
+          .to change { items[0].quality }.by(-50)
+      end
+      it 'keeps value at 0 if date to sell is negative' do
+        items = [Item.new('Backstage passes to a TAFKAL80ETC concert', -1, 50)]
+        expect { GildedRose.new(items).update_quality }
+          .to change { items[0].quality }.to eq(0)
       end
       it 'maxes out quality at 50' do
         items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 5, 50)]
