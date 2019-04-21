@@ -37,7 +37,7 @@ class GildedRose
       change_quality(item, 3)
     else change_quality(item, 1) unless item.quality == MAX_QUALITY
     end
-    if item.sell_in.zero?
+    if item.sell_in <= 0
       change_quality(item, -(item.quality))
     end
     lower_sell_in(item, 1)
