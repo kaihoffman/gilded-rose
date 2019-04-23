@@ -8,7 +8,7 @@ class GildedRose
   def update_quality
     @items.each do |item|
       if item.name == "Sulfuras, Hand of Ragnaros"
-        maintain_legendary_item(item)
+        next
       elsif item.name.include?("Conjured") || item.name.include?("conjured")
         conjured_item_update(item)
       elsif item.name == "Aged Brie"
@@ -22,10 +22,6 @@ class GildedRose
   end
 
   private
-
-  def maintain_legendary_item(item)
-      # do_nothing
-  end
 
   def aged_brie_update(item)
     change_quality(item, 1) unless item.quality == MAX_QUALITY
