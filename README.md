@@ -26,3 +26,6 @@ Gilded Rose is not just a refactoring challenge; it's also a testing challenge. 
 Committing early and often, with good commit messages, will help with understanding one's process for approaching a challenge when reviewing one's work.
 
 Reducing "Assignment Branch Condition" (as defined by Rubocop) is actually tougher than it looks. Trying to keep methods short is fairly easy, keeping the responsibilities clearly defined is easy enough, but reducing the conditionals from the various methods is the bigger challenge.
+
+### Credit Where Credit is Due
+The base code is from Emily Bache's repository here: https://github.com/emilybache/GildedRose-Refactoring-Kata
