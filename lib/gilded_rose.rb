@@ -9,6 +9,8 @@ class GildedRose
     @items.each do |item|
       if item.name == "Sulfuras, Hand of Ragnaros"
         maintain_legendary_item(item)
+      elsif item.name.include?("Conjured") || item.name.include?("conjured")
+        conjured_item_update(item)
       elsif item.name == "Aged Brie"
         aged_brie_update(item)
       elsif item.name == "Backstage passes to a TAFKAL80ETC concert"
@@ -48,6 +50,11 @@ class GildedRose
     else
       change_quality(item, -1)
     end
+    lower_sell_in(item, 1)
+  end
+
+  def conjured_item_update(item)
+    change_quality(item, -2)
     lower_sell_in(item, 1)
   end
 
