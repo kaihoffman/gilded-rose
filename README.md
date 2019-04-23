@@ -1,7 +1,14 @@
 ## Gilded Rose ruby refactoring kata
 
+### Running this repository
+1. ```git clone``` this repository.
+2. Run ```bundle install``` in the directory to download dependencies (mainly RSpec to run tests).
+3. Run ```rspec``` to run the test suite from ```spec/```
+4. Run ```ruby ./texttest_fixture.rb``` in the repository directory to run the app provided by the challenge. This contains a line, line 19, called "days" that allows you to alter the number of days the "shop" is open for business.
+
+
 ### Approach
-1. Create (feature) tests for the various types of items defined in the spec. These allowed me to keep track of the correctness of any changes I made in the main code, as I knew that technically the code was passing. These included:
+1. Creating (feature) tests for the various types of items defined in the spec. These allowed me to keep track of the correctness of any changes I made in the main code, as I knew that technically the code was passing. These included:
     - Updating quality on normal items
     - Guarding against quality going below 0
     - Brie increasing in quality, but maxing out at 50
