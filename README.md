@@ -4,7 +4,7 @@
 1. ```git clone``` this repository.
 2. Run ```bundle install``` in the directory to download dependencies (mainly RSpec to run tests).
 3. Run ```rspec``` to run the test suite from ```spec/```
-4. Run ```ruby ./texttest_fixture.rb``` in the repository directory to run the app provided by the challenge. This contains a line, line 19, called "days" that allows you to alter the number of days the "shop" is open for business.
+4. Run ```ruby ./texttest_fixture.rb``` in the repository directory to run the app provided by the challenge. This contains a line, line 19, called "days" that allows you to alter the number of days the "shop" is open for business. There is no other interface - this is a kata, after all.
 
 
 ### Approach
