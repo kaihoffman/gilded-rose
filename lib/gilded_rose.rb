@@ -67,8 +67,6 @@ class GildedRose
     if item.quality > MAX_QUALITY
       item.quality = MAX_QUALITY
     end
-    if item.quality < 0
-      item.quality = 0
-    end
+    item.quality = 0 if item.quality < 0
   end
 end
